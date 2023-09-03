@@ -5,7 +5,6 @@ from PyQt6.QtGui import QAction, QIcon
 class ExtensionRenamerApp(QMainWindow):
     def __init__(self):
         super().__init__()
-        # self.geometry(x, y, frame_width, frame_height)
         self.setGeometry(100, 100, 300, 150)
         self.setWindowTitle("Extension Renamer")
 
@@ -18,10 +17,8 @@ class ExtensionRenamerApp(QMainWindow):
         widget.setFrameShadow(QFrame.Shadow.Raised)
         widget.setLineWidth(2)
         widget.setMidLineWidth(2)
-        # widget.setFixedSize(300, 150)
         widget.setLayout(self.layout)
         self.setCentralWidget(widget)
-        # self.central_widget.setLayout(self.layout)
 
         #OLD EXTENSION LABEL AND INPUT FIELDS
         old_extention = QHBoxLayout()
@@ -38,7 +35,6 @@ class ExtensionRenamerApp(QMainWindow):
         self.new_extension_label = QLabel("New Extension:")
         new_extension.addWidget(self.new_extension_label)
         self.new_extension_input = QLineEdit(self)
-        self.new_extension_input.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed) # default behaviour
         new_extension.addWidget(self.new_extension_input)
         self.layout.addLayout(new_extension)
 
@@ -52,16 +48,14 @@ class ExtensionRenamerApp(QMainWindow):
         self.add_files_button = QPushButton("Add Files")
         self.add_files_button.setFixedSize(100, 30)
         self.add_files_button.clicked.connect(self.add_files)
-        # self.layout.addWidget(self.add_files_button) # to add the buttons widget vertically
         button_layout.addWidget(self.add_files_button) # add the frame containing the button to the button layout
 
         self.rename_button = QPushButton("Rename Files")
         self.rename_button.setFixedSize(100, 30)
         self.rename_button.clicked.connect(self.rename_files)
-        # self.layout.addWidget(self.rename_button)
         button_layout.addWidget(self.rename_button)
 
-        # Add the button layout to the main layout
+        # Add the button_layout to the main layout
         self.layout.addLayout(button_layout)
 
         # MENU BAR
